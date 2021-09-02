@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--映射文件：映射文件和映射接口成一一对应的关系-->
+<mapper namespace="cn.fungus.dao.UserDao">
+
+	<!-- 根据用户id查询用户信息 -->
+	<select id="selectUserByUid" resultType="cn.fungus.domain.User">
+   		select
+   		id,
+   		userid,
+   		username,
+   		password,
+   		nickname,
+   		phone,
+   		user_status as userStatus,
+   		create_time as createTime,
+   		icon,
+   		gender,
+   		birthday,
+   		city,
+   		job,
+   		security_question as securityQuestion,
+   		answer,
+   		is_delete as isDelete
+   		from user
+   		where userid=#{userid}
+   		and is_delete=0
+   </select>
+
+	<!-- 查询用户信息 -->
+	<select id="findUser" resultType="cn.fungus.domain.User">
+   		select
+   		id,
+   		userid,
+   		username,
+   		password,
+   		nickname,
+   		phone,
+   		user_status as userStatus,
+   		create_time as createTime,
+   		icon,
+   		gender,
+   		birthday,
+   		city,
+   		job,
+   		security_question as securityQuestion,
+   		answer,
+   		is_delete as isDelete
+   		from user
+   		where user_status=1
+   </select>
+
+	<!-- 根据用户名查询用户信息 -->
+	<select id="selectByUsername" resultType="cn.fungus.domain.User">
+   		select
+   		id,
+   		userid,
+   		username,
+   		password,
+   		nickname,
+   		phone,
+   		user_status as userStatus,
+   		create_time as createTime,
+   		icon,
+   		gender,
+   		birthday,
+   		city,
+   		job,
+   		security_question as securityQuestion,
+   		answer,
+   		is_delete as isDelete
+   		from user
+   		where username=#{username}
+   </select>
+
+	<!-- 根据手机号码查询用户信息 -->
+	<select id="selectByPhone" resultType="java.lang.Integer">
+   		select count(*)
+   		from user
+   		where phone=#{phone}
+
+   </select>
+
+	<!-- 查询所有用户信息 -->
+	<select id="selectAllUser" resultType="cn.fungus.domain.User">
+   		select
+   		id,
+   		userid,
+   		username,
+   		password,
+   		nickname,
+   		phone,
+   		user_status as userStatus,
+   		create_time as createTime,
+   		icon,
+   		gender,
+   		birthday,
+   		city,
+   		job,
+   		security_question as securityQuestion,
+   		answer,
+   		is_delete as isDelete
+   		from user
+   		where is_delete=0
+   		and userid like #{userid}
+   		and username like #{username}
+   		order by create_time desc
+ 		limit #{start},#{rows}
+   </select>
+	<!-- 查询所有用户数 -->
+	<select id="selectCountUser" resultType="java.lang.Integer">
+   		select
+   		count(*)
+   		from user
+   		where is_delete=0
+   		and userid like #{userid}
+   		and username like #{username}
+   </select>
+	<!-- 插入用户信息 -->
+	<insert id="insertUser">
+   		insert into user(username,password,phone,userid,security_question,answer)
+   		values(#{username},#{password},#{phone},#{userid},#{securityQuestion},#{answer})
+   </insert>
+
+	<!--修改用户信息-->
+	<update id="updateUserByUserId">
+			update
+			user
+			set
+			    nickname=#{nickname},
+				gender=#{gender},
+				birthday=#{birthday},
+				city=#{city}
+			where
+			userid=#{userid}
+	</update>
+
+	<!--修改用户密码-->
+	<update id="updatePasswordByUserId" >
+			update
+			user
+			set
+			password=#{password}
+			where
+			userid=#{userid}
+	</update>
+	<!--修改用户头像-->
+	<update id="updateIconByUserId" >
+			update
+			user
+			set
+			icon=#{icon}
+			where
+			userid=#{userid}
+	</update>
+	<!-- 插入用户全部信息 -->
+	<insert id="insertUserAll">
+   		insert into user(userid,username,password,nickname,phone,user_status,create_time,icon,gender,birthday,city,job)
+   		values(#{userid},#{username},#{password},#{nickname},#{phone},#{userStatus},#{createTime},#{icon},#{gender},#{birthday},#{city},#{job})
+   </insert>
+	<!-- 插入用户全部信息(无头像) -->
+	<insert id="insertUserAllNoIcon">
+   		insert into user(userid,username,password,nickname,phone,user_status,create_time,gender,birthday,city,job)
+   		values(#{userid},#{username},#{password},#{nickname},#{phone},#{userStatus},#{createTime},#{gender},#{birthday},#{city},#{job})
+   </insert>
+
+	<!--修改用户全部信息-->
+	<update id="updateUserAllByUserId">
+			update
+			user
+			set
+			username=#{username},
+			password=#{password},
+			nickname=#{nickname},
+			phone=#{phone},
+			user_status=#{userStatus},
+			create_time=#{createTime},
+			icon=#{icon},
+			gender=#{gender},
+			birthday=#{birthday},
+			city=#{city},
+			job=#{job}
+			where
+			userid=#{userid}
+	</update>
+
+	<!--修改用户账号状态-->
+	<update id="updUserStatusById" >
+			update
+			user
+			set
+			user_status=#{userStatus}
+			where
+			id=#{id}
+	</update>
+	<!--删除用户-->
+	<update id="delUserById" >
+			update
+			user
+			set
+			is_delete=1
+			where
+			id=#{id}
+	</update>
+</mapper>   
+
+
+
+
+
+
+

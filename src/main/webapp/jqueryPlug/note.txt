@@ -1,0 +1,10 @@
+confirm：弹出框
+
+
+distpicker-master：省份联动插件
+
+
+notice 弹出消息
+
+
+jqueryTpck：图片点击放大

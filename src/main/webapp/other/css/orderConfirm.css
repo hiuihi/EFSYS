@@ -1,0 +1,196 @@
+:root{
+    --red:#CC2121;
+    --green-7f:#7fad39;
+}
+
+
+/* 订单结算页 */
+/*#addresId2,#addresId3{*/
+/*    display: none;*/
+
+/*}*/
+.base{
+    font-style: normal;
+    margin-bottom: 10px
+}
+/* 去除字体斜体 */
+.base i{
+    font-style: normal;
+
+}
+.base:hover{
+    background: #f7f5f5;
+} 
+
+
+/* 按钮样式加右下角加号 */
+.btn-name {
+    border: none;
+    /* border-radius: 5px; */
+    background-color: #fff;
+    padding: 7px 0;
+    margin: 5px 2.5% 5px 0;
+    width: 10%;
+    position: relative;
+    font-weight: 550;
+    border: 1px solid #eee;
+}
+.btn-name:hover{
+     border: 2px solid var(--green-7f);
+}
+
+.btn-name-select {
+    border: none;
+    /* border-radius: 5px; */
+    background-color: #fff;
+    padding: 7px 0;
+    margin: 5px 2.5% 5px 0;
+    width: 10%;
+    position: relative;
+    font-weight: 550;
+    border: 2px solid var(--green-7f);
+}
+.btn-name-select:after {
+    content: '';
+    width: 4px;
+    height: 8px;
+    position: absolute;
+    right: 2px;
+    bottom: 2px;
+    border: 2px solid #fff;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    transform: rotate(40deg);
+} 
+.btn-name-select:before {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    border: 6px solid var(--green-7f);
+    border-top-color: transparent;
+    border-left-color: transparent;
+}
+
+/* 将设为默认地址，编辑，删除隐藏 */
+.user_site ,.user_edit ,.user_del{
+    display: none;
+    float: right;    
+    margin-right: 2%;
+    margin-top: 1%;
+   
+    /* line-height: 80px; */
+    
+}
+/* 隐藏默认地址 */
+/*.base span{*/
+/*    display: none;*/
+/*}*/
+.adress_choice a:hover{
+    color: var(--green-7f);
+}
+/* 去除下划线 */
+.adress_choice a{ 
+    text-decoration:none;
+}
+.adress_choice i,p{
+    font-weight: 550;
+}
+/* .adress_choice p{
+    font-weight: 550;
+} */
+/* 默认地址 */
+.user_sited{
+    background-color: #999999;
+    color: #fff;
+    padding: 4px;  
+}
+/* 外侧细线 */
+.shop_order{
+    border: 1px solid #e2e2e2; 
+    margin-bottom: 30px;
+    padding-top: 20px;
+}
+/* 添加收货地址 */
+.btn_addaddress{
+    float: right;
+    color:#1d7db7;
+}
+/* 更多地址 */
+#more{
+    text-decoration:none;
+    color:#1d7db7;
+    font-weight: 550;
+}
+/* 商品清单 */
+.shop_list{
+    margin-top: 30px;
+    font-weight: 800;
+    font-size: 15px;
+    margin-left: 2%;
+}
+
+
+/* 地址城市下拉框 */
+.select-city {
+    height: 36px;
+    line-height: 34px;
+    width: 135px;
+    padding: 0 10px;
+}
+.select-city.open {
+    border-color: #CC2121;
+}
+.select-city .list {
+    right: 0;
+    left: auto;
+    width: 100%;
+}
+.select-city .option {
+    font-size: 13px;
+    line-height: 34px;
+    min-height: 34px;
+    text-transform: capitalize;
+}
+.select-city:after {
+    height: 6px;
+    width: 6px;
+    border-bottom: 1px solid #999;
+    border-right: 1px solid #999;
+}
+
+
+/* 添加地址框 */
+.addmodal{
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    }
+.updatemodal{
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    }
+.modal-dialog{
+    position: relative;
+    width: 600px;
+    margin: 140px auto;
+    background: white;
+    border-radius: 5px;
+}
+#add-modal-dialog,#upd-modal-dialog{
+    position: relative;
+    width: 600px;
+    margin: 140px auto;
+    background: white;
+    border-radius: 5px;
+}
+/* 订单结算页结束 */

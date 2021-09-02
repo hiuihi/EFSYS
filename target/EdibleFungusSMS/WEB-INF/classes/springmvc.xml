@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <import resource="applicationContext.xml" />
+    <!--开启注解扫描-->
+    <context:component-scan base-package="cn.fungus">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+    </context:component-scan>
+    <!--视图解析对象-->
+    <bean id="internalResourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/web/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+    <bean id="multipartResolver"
+          class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!--上传文件的最大大小，单位为字节 -->
+        <property name="maxUploadSize" value="17367648787"></property>
+
+        <!-- 上传文件的编码 -->
+        <property name="defaultEncoding" value="UTF-8"></property>
+    </bean>
+
+    <!-- 配置拦截器 -->
+<!--    <mvc:interceptors>-->
+<!--        <mvc:interceptor>-->
+<!--            &lt;!&ndash; 拦截所有ywjb目录下面的页面 &ndash;&gt;-->
+<!--            <mvc:mapping path="/web/**"/>-->
+<!--            &lt;!&ndash; mvc:exclude-mapping是另外一种拦截，它可以在你后来的测试中对某个页面进行不拦截，这样就不用在-->
+<!--                LoginInterceptor的preHandler方法里面获取不拦截的请求uri地址了(优选) &ndash;&gt;-->
+<!--            <mvc:exclude-mapping path="/" />-->
+<!--            <bean class="cn.fungus.interceptor.LoginInterceptor"></bean>-->
+<!--        </mvc:interceptor>-->
+<!--    </mvc:interceptors>-->
+
+    <!--前端控制器，哪些静态资源不拦截-->
+    <mvc:default-servlet-handler/>
+<!--    <mvc:resources location="/css/" mapping="/css/**"/>-->
+<!--    <mvc:resources location="/font/" mapping="/font/**"/>-->
+<!--    <mvc:resources location="/images/" mapping="/images/**"/>-->
+
+<!--    <mvc:resources location="/lay/" mapping="/lay/**"/>-->
+
+
+
+
+
+    <!--开启SpringMVC框架注解的支持-->
+    <mvc:annotation-driven />
+
+</beans>

@@ -1,0 +1,759 @@
+
+/* 添加修改 */
+.addmodal,.updatemodal{
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 2;
+    background: rgba(0,0,0,0.5);
+     display: none;
+}
+.modal-dialog{
+    position: relative;
+    width: 600px;
+    margin: 140px auto;
+    background: white;
+    border-radius: 5px;
+}
+#add-modal-dialog,#upd-modal-dialog{
+    position: relative;
+    width: 700px;
+    margin: 15px auto;
+    background: white;
+    border-radius: 5px;
+}
+/*x轴禁止滚动y轴滚动*/
+/* .div_Logistics{
+        height: 500px;
+        overflow-x: hidden;
+        overflow-y: scroll;
+    } */
+/* 关闭按钮 */
+.btn_x{
+    float: right;
+    border: none;
+    margin-top: 10px;
+    cursor: pointer;
+}
+/*------分页 ------*/
+.paginatoin-area {
+    margin-top: 10px;
+    padding-bottom: 10px;
+    /* padding: 10px; */
+    /* background-color: #f6f6f6; */
+}
+
+.paginatoin-area .pagination-box {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.paginatoin-area .pagination-box li {
+    margin-right: 5px;
+    display: inline-block;
+    border:1px solid #eee;
+
+}
+
+.paginatoin-area .pagination-box li:last-child {
+    margin-right: 0;
+}
+
+.paginatoin-area .pagination-box li a {
+    color: #111;
+    height: 35px;
+    width: 35px;
+    font-size: 14px;
+    display: inline-block;
+    padding: 0 10px;
+    text-align: center;
+    line-height: 36px;
+    background-color: #fff;
+    text-decoration:none;
+}
+
+.paginatoin-area .pagination-box li a i {
+    font-size: 12px;
+    line-height: 36px;
+}
+
+.paginatoin-area .pagination-box li a:hover {
+    color: #fff;
+    border-color: #009688;
+    background-color: #009688;
+}
+
+.paginatoin-area .pagination-box li.active a {
+    color: #fff;
+    background-color: #009688;
+    pointer-events:none
+}
+/* 按钮变灰 */
+.paginatoin-area .pagination-box li a.previoused {
+    /* 按钮不可点击 */
+    /* pointer-events:none; */
+    opacity: 0.4;
+}
+.paginatoin-area .pagination-box li a.previoused:hover {
+    /* 鼠标变禁止符号 */
+    cursor:not-allowed;
+    background-color: #fff;
+    color: #000;
+}
+
+.paginatoin-area .pagination-box li a.nexted {
+    /*pointer-events:none;*/
+    opacity: 0.4;
+}
+.paginatoin-area .pagination-box li a.nexted:hover {
+    /* 鼠标变禁止符号 */
+    cursor:not-allowed;
+    background-color: #fff;
+    color: #000;
+}
+/* 分页文字 */
+.div_pagination{
+    display: -webkit-flex; /* Safari */
+    -webkit-align-items: center; /* Safari 7.0+ */
+    display: flex;
+}
+/*------分页结束 ------*/
+
+/* 表格 */
+/*y轴禁止滚动x轴滚动*/
+#scroll-y{
+    overflow:auto;
+    /* overflow-x: scroll;
+    overflow-y: hidden; */
+    white-space: nowrap;
+}
+.table_fixed{
+    white-space: nowrap;
+}
+
+.table_fixed td:nth-child(2){
+    position:sticky;
+    left:60px;
+    z-index: 1;
+    background-color:white;
+}
+.table_fixed th:nth-child(2){
+    position:sticky;
+    left:60px;
+    z-index: 1;
+    background-color:white;
+}
+
+.table_fixed td:first-child{
+    position:sticky;
+    /* 首行在左 */
+    left:0;
+    z-index:1;
+    background-color:white;
+}
+.table_fixed th:first-child {
+    position:sticky;
+    /* 首行在左 */
+    left:0;
+    z-index:1;
+    background-color:white;
+}
+.table_fixed td:last-child{
+    position:sticky;
+    /* 首行在右 */
+    right:0;
+    background-color:white;
+
+}
+.table_fixed th:last-child {
+    position:sticky;
+    /* 首行在右 */
+    right:0;
+    background-color:white;
+
+}
+.table_fixed th:nth-child(2){
+    background-color:#f2f2f2;
+}
+.table_fixed th:first-child{
+    background-color:#f2f2f2;
+}
+.table_fixed th:last-child{
+    border-right :1px solid gray;
+    background-color:#f2f2f2;
+}
+.table_fixed thead tr th {
+    position:sticky;
+    top:0; /* 第一列最上 */
+
+}
+/* 设置长度超长后省略内容 */
+.partially_hidden{
+    table-layout: fixed;
+}
+.no_wrap{
+    text-overflow: ellipsis;
+    /*  overflow 属性规定当内容溢出元素框时发生的事情*/
+    overflow: hidden;
+    /*  规定文本不进行换行*/
+    white-space: nowrap;
+    width: 200px;
+}
+/* 图片 */
+.img_icon{
+    width:40px;
+    height: 40px;
+}
+/*图片右上角X*/
+.img-wrapper {
+    margin:0 10px;
+    position: relative;
+    display: inline-block;
+}
+.img-close {
+    color: #CC2121;
+    position: absolute;
+    top: -7px;
+    right: -7px;
+    cursor: pointer;
+    /* height: 100px; */
+}
+.img_pic{
+    width:50px;
+    height:50px;
+}
+
+/* 订单 */
+/* 订单号/下单时间 */
+.breadcrumb-wrap1 {
+    background-color: #F6F6F6;
+    /* text-align: center;  */
+    height: 30px;
+    font-size: 15px;
+    font-weight: 400;
+    /* 垂直居中 */
+    display: -webkit-flex;
+    -webkit-align-items: center;
+    display: flex;
+    align-items: center;
+
+}
+.breadcrumb-wrap1 p{
+    /* font-size: 15px; */
+    margin-left: 10px ;
+}
+
+
+/* 详情栏 */
+.order-head {
+    margin-bottom: 10px;
+    height: 40px;
+    /* 垂直居中 */
+    display: -webkit-flex; /* Safari */
+    -webkit-align-items: center; /* Safari 7.0+ */
+    display: flex;
+    align-items: center;
+    background-color: #eee;
+}
+
+.order-head table {
+    width: 100%;
+    text-align: center;
+}
+
+/* .order_table1 table thead tr {
+    border-bottom: 1px solid #ebebeb;
+} */
+
+.order-head table thead th {
+    font-size: 15px;
+    font-weight:700;
+    color: #1c1c1c;
+    /* padding-bottom: 20px; */
+    width: 10%;
+
+}
+.order-head table thead th.all_checkbox{
+    width: 5%;
+}
+.order-head table thead th.shoping_product {
+    width: 35%;
+}
+
+
+/* 商品订单栏 */
+.order-list {
+    margin-bottom: 5px;
+}
+
+.order-list table {
+    width: 100%;
+    text-align: center;
+    /* 边框 */
+    border: 1px solid #eee;
+}
+.order-list table thead {
+    background-color: #eee;
+}
+/*.order-list table tbody a {
+      color: rgb(163, 160, 160);
+} */
+/* .order-list table tbody a:hover {
+      color: #009688;
+} */
+.order-list table tbody tr td {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    /* border-bottom: 1px solid #ebebeb; */
+}
+
+.order-list table tbody tr td.order_item {
+    /* width: 330px; */
+    width: 40%;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.order-list table tbody tr td.order_item img {
+    display: inline-block;
+    margin-right: 25px;
+    margin-left: 10px;
+    height: 60px;
+    width: 60px;
+}
+
+.order-list table tbody tr td.order_item h5 {
+
+    color: #1c1c1c;
+    display: inline-block;
+    /* ellipsis 表示显示省略符号来代表被修剪的文本。 */
+    text-overflow: ellipsis;
+    /*  overflow 属性规定当内容溢出元素框时发生的事情*/
+    overflow: hidden;
+    /*  规定文本不进行换行*/
+    white-space: nowrap;
+    max-width: 180px;
+    /* 垂直居中 */
+
+}
+
+.order-list table tbody tr td.order_item h5 a{
+    color: #1c1c1c;
+}
+
+
+.order-list table tbody tr td.order_price {
+    font-size: 15px;
+    color: #1c1c1c;
+    font-weight: 400;
+    width: 10%;
+    border-bottom: 1px solid #eee;
+
+}
+.order-list table tbody tr td.order_quantity {
+    font-size: 15px;
+    font-weight: 400;
+    width: 10%;
+    border-right:  1px solid #eee;
+    border-bottom: 1px solid #eee;
+
+}
+.order-list table tbody tr td.order_total {
+    font-size: 15px;
+    color: #1c1c1c;
+    font-weight: 400;
+    width: 10%;
+    border-right:  1px solid #eee;
+
+}
+.order-list table tbody tr td.order_after {
+    font-size: 15px;
+    color: #1c1c1c;
+    font-weight: 400;
+    width: 10%;
+    border-right:  1px solid #eee;
+}
+.order-list table tbody tr td.order_after a:hover {
+    color: #009688;
+}
+.order-list table tbody tr td.order_status {
+    font-size: 15px;
+    color: #1c1c1c;
+    font-weight: 400;
+    width: 10%;
+    border-right:  1px solid #eee;
+
+}
+.order-list table tbody tr td.order_status span{
+    color: #009688;
+
+}
+.order-list table tbody tr td.order_handle {
+    font-size: 15px;
+    color: #1c1c1c;
+    font-weight: 400;
+    width: 10%;
+    text-align: center;
+    border-right:  1px solid #eee;
+
+}
+.deliver_goods{
+    /* float: left; */
+    width: 60px;
+    height: 30px;
+    padding: 5px 10px;
+    background-color: #009688;
+    font: 11px/31px "microsoft yahei";
+    color: #fff;
+    font-weight: 600;
+    margin: 0 auto;
+
+}
+.deliver_goods:hover{
+    color: #fff;
+}
+/* 查看物流  */
+.logistics{
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    background: rgba(0,0,0,0.5);
+    /* overflow-x: hidden;
+    overflow-y: scroll; */
+    /* overflow:auto; */
+    display: none;
+}
+.logistics-modal{
+    position: relative;
+    width: 600px;
+    margin: 30px auto;
+    background: white;
+    border-radius: 5px;
+}
+.div-deliver-goods{
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    background: rgba(0,0,0,0.5);
+    /* overflow-x: hidden;
+    overflow-y: scroll; */
+    /* overflow:auto; */
+    display: none;
+}
+
+.deliver-goods-modal{
+    position: relative;
+    width: 350px;
+    margin: 200px auto;
+    background: white;
+    border-radius: 5px;
+}
+#div_Logistics{
+    height: 500px;
+    overflow-x: hidden;/*x轴禁止滚动*/
+    overflow-y: scroll;/*y轴滚动*/
+}
+/* 订单结束 */
+
+/* 订单详情页 */
+/* 状态栏 */
+.process-wrap1 {
+    width: 100%;
+    display: block;
+    margin-left: 5%;
+    margin-top: 20px;
+    padding-bottom: 150px;
+
+}
+
+.process1 {
+    position: relative;
+    float: left;
+    width: 20%;
+    z-index: 0;
+}
+
+
+.process1.active:after {
+    position: absolute;
+    top: 30%;
+    right: 15%;
+    content: '';
+    width: 52%;
+    height: 5px;
+    background:url(../img/orderdetails/orderinfo_img9.png);
+    z-index: -1;
+}
+.process1.actived:after {
+    position: absolute;
+    top: 30%;
+    right: 15%;
+    content: '';
+    width: 52%;
+    height: 5px;
+    background:url(../img/orderdetails/orderinfo_img9_2.png);
+    z-index: -1;
+}
+
+.process1 p {
+    position: relative;
+    height: 20px;
+    margin: 0 auto;
+    background: #fff;
+    z-index: 1;
+    font-weight: 700;
+}
+
+
+.clear p{
+    color: #000;
+    font-weight: 500;
+}
+.base{
+    font-style: normal;
+    margin-bottom: 10px
+}
+/* 去除字体斜体 */
+.base i{
+    font-style: normal;
+
+}
+/* 第一条物流信息 */
+.base p:first-of-type{
+    color:rgb(184, 51, 51);
+}
+/* 除第一条物流信息其余隐藏 */
+.base p:nth-child(n+3){
+    display: none;
+}
+
+
+/* 去除下划线 */
+.adress_choice i{
+    font-style: normal;
+    width: 100%;
+}
+
+.adress_choice {
+    font-weight: 550;
+}
+
+
+/* 外侧细线 */
+.shop_order{
+    padding: 0px 30px;
+    margin-bottom: 30px;
+}
+
+/* 更多地址 */
+#more{
+    text-decoration:none;
+    color:#1d7db7;
+    font-weight: 550;
+}
+/* 商品清单 */
+.shop_list{
+    margin-top: 30px;
+    font-weight: 800;
+    font-size: 15px;
+    margin-left: 2%;
+}
+.orderInf{
+    margin-left: 100px;
+    color: black;
+}
+.orderInf p{
+    margin-bottom: 10px;
+    font-weight: 500;
+    color: black;
+}
+
+/* 详情栏 */
+.order-table {
+    padding: 10px 100px;
+    /* height: 40px; */
+}
+
+.order-table table {
+    width: 100%;
+    text-align: center;
+    border: 2px solid #f5f5f5;
+}
+.order-table table thead{
+    /* height: 100px; */
+    background-color: #f5f5f5;
+}
+/* .order_table1 table thead tr {
+    border-bottom: 1px solid #ebebeb;
+} */
+
+.order-table table thead th {
+    font-size: 15px;
+    font-weight:700;
+    color: #1c1c1c;
+    height: 40px;
+    /* padding-bottom: 20px; */
+    /* width: 10%; */
+
+}
+/* .order-table table thead th.shoping_product {
+    width: 20%;
+} */
+
+.order-table table tbody tr td {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    /* border-bottom: 1px solid #ebebeb; */
+}
+
+.order-table table tbody tr td.order_item {
+    /* width: 330px; */
+    width: 20%;
+    text-align: left;
+    border-right:  1px solid #eee;
+}
+
+.order-table table tbody tr td.order_item img {
+    display: inline-block;
+    margin-right: 25px;
+    margin-left: 10px;
+    height: 60px;
+    width: 60px;
+}
+
+.order-table table tbody tr td.order_item h5 {
+
+    color: #1c1c1c;
+    display: inline-block;
+    /* ellipsis 表示显示省略符号来代表被修剪的文本。 */
+    text-overflow: ellipsis;
+    /*  overflow 属性规定当内容溢出元素框时发生的事情*/
+    overflow: hidden;
+    /*  规定文本不进行换行*/
+    white-space: nowrap;
+    max-width: 180px;
+    /* 垂直居中 */
+
+}
+
+.order-table table tbody tr td.order_item h5 a{
+    color: #1c1c1c;
+}
+.order-list table tbody tr td.order_property{
+
+    font-size: 15px;
+    color: #1c1c1c;
+    font-weight: 400;
+    width: 20%;
+    border-right:  1px solid #eee;
+}
+.order-table table tbody tr td.order_price {
+    font-size: 15px;
+    color: #1c1c1c;
+    font-weight: 400;
+    width: 15%;
+    border-right:  1px solid #eee;
+    border-left:  1px solid #eee;
+}
+.order-table table tbody tr td.order_quantity {
+    font-size: 15px;
+    font-weight: 400;
+    width: 15%;
+    border-right:  1px solid #eee;
+
+
+}
+.order-table table tbody tr td.order_total {
+    font-size: 15px;
+    color: #1c1c1c;
+    font-weight: 400;
+    width: 15%;
+    border-right:  1px solid #eee;
+
+}
+.order-table table tbody tr td.order_status {
+    font-size: 15px;
+    color: #1c1c1c;
+    font-weight: 400;
+    width: 15%;
+    border-right:  1px solid #eee;
+
+}
+/* 退款 */
+.div_reimburse{
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    background: rgba(0,0,0,0.5);
+     display: none;
+    z-index:2;
+}
+.reimburse-modal-dialog{
+    position: relative;
+    width: 700px;
+    margin: 60px auto;
+    background: white;
+    border-radius: 5px;
+}
+
+.div_reimburse-y{
+    height: 460px;
+    overflow-x: hidden;/*x轴禁止滚动*/
+    overflow-y: scroll;/*y轴滚动*/
+}
+
+
+/* 退款商品选择 */
+.div-refund-goods{
+    height: 70px;
+    /* 垂直居中 */
+    display: -webkit-flex;
+    -webkit-align-items: center;
+    display: flex;
+    align-items: center;
+}
+.div-refund-goods input{
+    float: left;
+
+}
+.div-refund-goods img{
+    height: 50px;
+    margin: 0px 10px;
+    float: left;
+}
+.refund-goodsname{
+    float: left;
+    margin: 0px 2px;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    width: 130px;
+}
+/* 退款凭证图片 */
+.reimburse_img{
+    height: 60px;
+    margin: 10px 10px;
+}
+
+/* 退款结束 */
+
+/* 订单详情结束 */
+
+
+
+
+

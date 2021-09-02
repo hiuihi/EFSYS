@@ -1,0 +1,243 @@
+
+/* 订单详情页 */
+/* 状态栏 */
+.process-wrap1 {
+    width: 100%;
+    display: block;
+    float: left; 
+    margin: 70px 0;
+    /* background-color: aqua; */
+    
+}
+
+.process1 {
+    position: relative;
+    float: left;
+    width: 20%;
+    z-index: 0; 
+    /* background-color: aqua; */
+    
+}
+.process1.active:after {
+    position: absolute;
+    top: 30%;
+    right: -25%;
+    
+    content: '';
+    width: 50%;
+    height: 5px;
+    background:url(../img/orderdetails/orderinfo_img9.png);
+    z-index: -1; 
+}
+.process1.actived:after {
+    position: absolute;
+    top: 30%;
+    right: -25%;
+    content: '';
+    width: 50%;
+    height: 5px;
+    background:url(../img/orderdetails/orderinfo_img9_3.png);
+    z-index: -1;
+}
+/* 选择属于其父元素最后一个子元素每个 <p> 元素 */
+/* .process:last-child:after {
+    display: none; 
+} */
+.process1 p {
+    position: relative;
+    width: 80px;
+    height: 20px;
+    display: table;
+    /* border: 2px solid #e2e2e2; */
+    margin: 0 auto;
+    /* margin-bottom: 20px; */
+    background: #fff;
+    z-index: 1;
+    font-weight: 700;
+    /* -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    border-radius: 50%;  */
+}
+
+
+.clear p{
+    color: #000;
+    font-weight: 500;
+}
+.base{
+    font-style: normal;
+    margin-bottom: 10px
+}
+/* 去除字体斜体 */
+.base i{
+    font-style: normal;
+
+}
+/* 第一条物流信息 */
+.base p:first-of-type{
+    color:rgb(184, 51, 51);
+}
+/* 除第一条物流信息其余隐藏 */
+.base p:nth-child(n+3){
+    display: none;
+}
+/* .base p:nth-of-type(2){
+    display: none;
+} */
+
+
+
+/* 去除下划线 */
+.adress_choice i{ 
+    font-style: normal;
+
+    width: 100%;
+   
+    
+}
+
+.adress_choice {
+    font-weight: 550;
+}
+
+
+/* 外侧细线 */
+.shop_order{
+    /* border: 1px solid #e2e2e2;  */
+    margin-bottom: 30px;
+    padding-top: 20px;
+}
+
+/* 更多地址 */
+#more{
+    text-decoration:none;
+    color:#1d7db7;
+    font-weight: 550;
+}
+/* 商品清单 */
+.shop_list{
+    margin-top: 30px;
+    font-weight: 800;
+    font-size: 15px;
+    margin-left: 2%;
+}
+.orderInf{
+    margin-left: 100px;
+    color: black;
+}
+.orderInf p{
+   font-weight: 500;
+    color: black;
+}
+/* 详情栏 */
+.order-table {
+    padding: 10px 100px;
+    /* height: 40px; */
+}
+
+.order-table table {
+    width: 100%;
+    text-align: center;
+    border: 2px solid #f5f5f5;
+}
+.order-table table thead{
+    /* height: 100px; */
+    background-color: #f5f5f5;
+}
+/* .order_table1 table thead tr {
+    border-bottom: 1px solid #ebebeb;
+} */
+
+.order-table table thead th {
+    font-size: 15px;
+    font-weight:700;
+    color: #1c1c1c;
+    height: 40px;
+    /* padding-bottom: 20px; */
+    /* width: 10%; */
+
+}
+/* .order-table table thead th.shoping_product {
+    width: 20%;
+} */
+
+.order-table table tbody tr td {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    /* border-bottom: 1px solid #ebebeb; */
+}
+
+.order-table table tbody tr td.order_item {
+    /* width: 330px; */
+    width: 20%;
+    text-align: left;
+    border-right:  1px solid #eee;
+}
+
+.order-table table tbody tr td.order_item img {
+    display: inline-block;
+    margin-right: 25px;
+    margin-left: 10px;
+    height: 60px;
+    width: 60px;
+}
+
+.order-table table tbody tr td.order_item h5 {
+
+    color: #1c1c1c;
+    display: inline-block;
+    /* ellipsis 表示显示省略符号来代表被修剪的文本。 */
+    text-overflow: ellipsis;
+    /*  overflow 属性规定当内容溢出元素框时发生的事情*/
+    overflow: hidden;
+    /*  规定文本不进行换行*/
+    white-space: nowrap;
+    max-width: 180px;
+    /* 垂直居中 */
+
+}
+
+.order-table table tbody tr td.order_item h5 a{
+    color: #1c1c1c;
+}
+.order-list table tbody tr td.order_property{
+
+    font-size: 15px;
+    color: #1c1c1c;
+    font-weight: 400;
+    width: 20%;
+    border-right:  1px solid #eee;
+}
+.order-table table tbody tr td.order_price {
+    font-size: 15px;
+    color: #1c1c1c;
+    font-weight: 400;
+    width: 15%;
+    border-right:  1px solid #eee;
+    border-left:  1px solid #eee;
+}
+.order-table table tbody tr td.order_quantity {
+    font-size: 15px;
+    font-weight: 400;
+    width: 15%;
+    border-right:  1px solid #eee;
+
+
+}
+.order-table table tbody tr td.order_total {
+    font-size: 15px;
+    color: #1c1c1c;
+    font-weight: 400;
+    width: 15%;
+    border-right:  1px solid #eee;
+
+}
+.order-table table tbody tr td.order_status {
+    font-size: 15px;
+    color: #1c1c1c;
+    font-weight: 400;
+    width: 15%;
+    border-right:  1px solid #eee;
+
+}

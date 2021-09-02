@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>我的朋友圈</title>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+<link type="text/css" rel="stylesheet" href="css/app.css">
+<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+<script type="text/javascript" src="js/rem.js"></script>
+<link rel="stylesheet" type="text/css" href="css/swiper.min.css"/>
+<script type="text/javascript" src="js/swiper.min.js"></script>
+</head>
+<body>
+<div id="main">
+  <div id="list">
+    <ul>
+      <li>
+        <div class="po-avt-wrap"> <img class="po-avt data-avt" src="http://www.jq22.com/img/cs/500x500-1.png"> </div>
+        <div class="po-cmt">
+          <div class="po-hd">
+            <p class="po-name"><span class="data-name">XXX</span></p>
+            <div class="post">
+              <p>大家好</p>
+              <p> <img class="list-img" src="http://www.jq22.com/img/cs/500x500-1.png" style="height: 80px;"> <img class="list-img" src="http://www.jq22.com/img/cs/500x500-2.png" style="height: 80px;"> <img class="list-img data-avt" src="http://www.jq22.com/img/cs/500x500-3.png" style="height: 80px;"> <img class="list-img data-avt" src="http://www.jq22.com/img/cs/500x500-4.png" style="height: 80px;"> </p>
+            </div>
+            <p class="time">刚刚</p>
+            <div class="tc1"> <img class="c-icon" src="images/c.png">
+              <div class="tc2"><span class="zan"><span>赞</span></span>　<span class="pinglun"><span>评论</span></span></div>
+            </div>
+          </div>
+          <div class="r"></div>
+        </div>
+      </li>
+      <li>
+        <div class="po-avt-wrap"> <img class="po-avt data-avt" src="http://www.jq22.com/img/cs/500x500-1.png"> </div>
+        <div class="po-cmt">
+          <div class="po-hd">
+            <p class="po-name"><span class="data-name">XXX2</span></p>
+            <div class="post">
+              <p>大家好2</p>
+              <p> <img class="list-img" src="http://www.jq22.com/img/cs/500x500-1.png" style="height: 80px;"> <img class="list-img" src="http://www.jq22.com/img/cs/500x500-2.png" style="height: 80px;"> <img class="list-img data-avt" src="http://www.jq22.com/img/cs/500x500-3.png" style="height: 80px;"> <img class="list-img data-avt" src="http://www.jq22.com/img/cs/500x500-4.png" style="height: 80px;"> </p>
+            </div>
+            <p class="time">刚刚</p>
+            <div class="tc1"> <img class="c-icon" src="images/c.png">
+              <div class="tc2"><span class="zan"><span>赞</span></span>　<span class="pinglun"><span>评论</span></span></div>
+            </div>
+          </div>
+          <div class="r"></div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  
+</div>
+<div class="big_img">
+  <div class="swiper-container2">
+    <div class="swiper-wrapper"> </div>
+  </div>
+</div>
+<script>
+$(document).ready(function(){
+  /*调起大图 S*/
+   var mySwiper = new Swiper('.swiper-container2', {
+        loop: false,
+        pagination: '.swiper-pagination2',
+        })
+    $("#list").on("click", ".post img", 
+    function() {
+        var imgBox = $(this).parents(".post").find("img");
+        var i = $(imgBox).index(this);
+        $(".big_img .swiper-wrapper").html("")
+
+        for(var j = 0 ,c = imgBox.length; j < c ;j++){
+         $(".big_img .swiper-wrapper").append('<div class="swiper-slide"><div class="cell"><img src="' + imgBox.eq(j).attr("src") + '" / ></div></div>');
+        }
+        mySwiper.updateSlidesSize();
+        mySwiper.updatePagination();
+        $(".big_img").css({
+            "z-index": 1001,
+            "opacity": "1"
+        });
+        mySwiper.slideTo(i, 0, false);
+        return false;
+    });
+  
+    $(".big_img").on("click", 
+    function() {
+        $(this).css({
+            "z-index": "-1",
+            "opacity": "0"
+        });
+
+    });
+  });
+  /*调起大图 E*/
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--映射文件：映射文件和映射接口成一一对应的关系-->
+<mapper namespace="cn.fungus.dao.OrdersDao">
+
+	<!--插入订单信息-->
+	<insert id="insertOrder" >
+		insert into
+		`order`(user_id,order_sn,goods_ids,create_time,total_amount,order_status,payment_time,delivery_company,delivery_sn,address_id,user_address_name,tel,province,city,county,address)
+		values(#{userId},#{orderSn},#{goodsIds},#{createTime},#{totalAmount},#{orderStatus},#{paymentTime},#{deliveryCompany},#{deliverySn},#{addressId},#{userAddressName},#{tel},#{province},#{city},#{county},#{address})
+	</insert>
+	<!--分页查询订单信息	-->
+	<select id="selectOrderByUid" resultType="cn.fungus.domain.Order">
+		select
+		id,
+		user_id as userId,
+		order_sn as orderSn,
+		goods_ids as goodsIds,
+		create_time as createTime,
+		total_amount as totalAmount,
+		order_status as orderStatus,
+		payment_time as paymentTime,
+		trade_no as tradeNo,
+		delivery_company as deliveryCompany,
+		delivery_sn as deliverySn,
+		address_id as addressId,
+		user_address_name as userAddressName,
+		tel,
+		province,
+		city,
+		county,
+		address,
+		is_del as isDel,
+		delivery_time as deliveryTime,
+		receive_time as receiveTime,
+		comment_time as commentTime,
+		refund_price as refundPrice,
+		returned_quantity as returnedQuantity,
+		upd_time as updTime
+		from `order`
+ 		where user_id=#{userId}
+ 		and is_del=0
+ 		and order_status like #{orderStatus}
+ 		and order_sn like #{term}
+ 		order by upd_time desc
+ 		limit #{start},#{rows}
+	</select>
+	<!--分页查询所有订单信息	-->
+	<select id="selectAllOrder" resultType="cn.fungus.domain.Order">
+		select
+		id,
+		user_id as userId,
+		order_sn as orderSn,
+		goods_ids as goodsIds,
+		create_time as createTime,
+		total_amount as totalAmount,
+		order_status as orderStatus,
+		payment_time as paymentTime,
+		trade_no as tradeNo,
+		delivery_company as deliveryCompany,
+		delivery_sn as deliverySn,
+		address_id as addressId,
+		user_address_name as userAddressName,
+		tel,
+		province,
+		city,
+		county,
+		address,
+		is_del as isDel,
+		delivery_time as deliveryTime,
+		receive_time as receiveTime,
+		comment_time as commentTime,
+		refund_price as refundPrice,
+		returned_quantity as returnedQuantity,
+		upd_time as updTime
+		from `order`
+ 		where is_del=0
+ 		and order_status like #{orderStatus}
+ 		and order_sn like #{orderSn}
+ 		and user_id like #{userId}
+ 		order by upd_time desc
+ 		limit #{start},#{rows}
+	</select>
+	<!--查询订单条数	-->
+	<select id="selectCount" resultType="java.lang.Long">
+		select
+		count(*)
+		from `order`
+ 		where is_del=0
+ 		and order_status like #{orderStatus}
+ 		and order_sn like #{orderSn}
+ 		and user_id like #{userId}
+	</select>
+	<!--根据订单号查询订单信息	-->
+	<select id="selectOrderByUidSn" resultType="cn.fungus.domain.Order">
+		select
+		id,
+		user_id as userId,
+		order_sn as orderSn,
+		goods_ids as goodsIds,
+		create_time as createTime,
+		total_amount as totalAmount,
+		order_status as orderStatus,
+		payment_time as paymentTime,
+		trade_no as tradeNo,
+		delivery_company as deliveryCompany,
+		delivery_sn as deliverySn,
+		address_id as addressId,
+		user_address_name as userAddressName,
+		tel,
+		province,
+		city,
+		county,
+		address,
+		is_del as isDel,
+		delivery_time as deliveryTime,
+		receive_time as receiveTime,
+		comment_time as commentTime,
+		refund_price as refundPrice,
+		returned_quantity as returnedQuantity,
+		upd_time as updTime
+		from `order`
+ 		where order_sn=#{ordeSn}
+ 		and is_del=0
+	</select>
+	<!--根据uid查询订单条数	-->
+	<select id="selectCountByUid" resultType="java.lang.Long">
+		select
+		count(*)
+		from `order`
+ 		where user_id=#{userId}
+ 		and is_del=0
+ 		and order_status like #{orderStatus}
+	</select>
+	<!--修改订单状态()-->
+	<update id="updOrderStatusByUidSn" >
+			update
+			`order`
+			set
+			payment_time=#{paymentTime},
+			trade_no=#{tradeNo},
+			order_status=#{orderStatus}
+			where order_sn=#{orderSn}
+	</update>
+	<!--删除订单-->
+	<update id="delOrderByUidSn" >
+			update
+			`order`
+			set
+			is_del=1
+			where order_sn=#{orderSn}
+	</update>
+	<!--修改订单物流信息-->
+	<update id="updOrderDelivery" >
+			update
+			`order`
+			set
+			delivery_company=#{deliveryCompany},
+			delivery_Sn=#{deliverySn},
+			delivery_time=#{deliveryTime}
+			where order_sn=#{orderSn}
+	</update>
+
+	<!--修改订单状态为待发货等-->
+	<update id="updOrderStatusByOrderSn" >
+			update
+			`order`
+			set
+			order_status=#{orderStatus}
+			where order_sn=#{orderSn}
+	</update>
+
+
+	<!--插入订单商品信息-->
+	<insert id="insertOrderGoods">
+		insert into
+		order_goods(order_sn,user_id,goods_id,goods_name,images,spec,price,stock,total_price)
+		values(#{orderSn},#{userId},#{goodsId},#{goodsName},#{images},#{spec},#{price},#{stock},#{totalPrice})
+	</insert>
+	<!--查询订单商品信息	-->
+	<select id="selectOrderGoodsByOrderSn" resultType="cn.fungus.domain.OrderGoods">
+		select
+		id,
+		order_sn as orderSn,
+		user_id as userId,
+		goods_id as goodsId,
+		goods_name as goodsName,
+		images,
+		spec,
+		price,
+		stock,
+		total_price as totalPrice,
+		upd_time as updTime
+		from order_goods
+ 		where order_sn=#{orderSn}
+	</select>
+
+	<!--查询所有订单商品信息	-->
+	<select id="selectAllOrderGoods" resultType="cn.fungus.domain.OrderGoods">
+		select
+		id,
+		order_sn as orderSn,
+		user_id as userId,
+		goods_id as goodsId,
+		goods_name as goodsName,
+		images,
+		spec,
+		price,
+		stock,
+		total_price as totalPrice,
+		upd_time as updTime
+		from order_goods
+	</select>
+
+	<!--查询订单商品信息根据订单号和输入框的内容	-->
+	<select id="getOrderGoodsByOrderSnAndTerm" resultType="cn.fungus.domain.OrderGoods">
+		select
+		id,
+		order_sn as orderSn,
+		user_id as userId,
+		goods_id as goodsId,
+		goods_name as goodsName,
+		images,
+		spec,
+		price,
+		stock,
+		total_price as totalPrice,
+		upd_time as updTime
+		from order_goods
+ 		where order_sn=#{orderSn}
+ 		and goods_name like #{term}
+	</select>
+
+	<!--插入退款-->
+	<insert id="insertReimburse">
+		insert into
+		reimburse(order_sn,goods_ids,is_received_goods,is_retutn_goods,is_all_reimburse,price,reason,caption,images,delivery_status,order_status)
+		values(#{orderSn},#{goodsIds},#{isReceivedGoods},#{isRetutnGoods},#{isAllReimburse},#{price},#{reason},#{caption},#{images},#{deliveryStatus},#{orderStatus})
+	</insert>
+
+	<!--查询退款信息	-->
+	<select id="selectReimburseByOrderSn" resultType="cn.fungus.domain.Reimburse">
+		select
+		id,
+		order_sn as orderSn,
+		goods_ids as goodsIds,
+		is_received_goods as isReceivedGoods,
+		is_retutn_goods as isRetutnGoods,
+		is_all_reimburse as isAllReimburse,
+		price,
+		reason,
+		caption,
+		images,
+		seller_opinion as sellerOpinion,
+		seller_caption as sellerCaption,
+		address,
+		delivery,
+		delivery_status as deliveryStatus,
+		delivery_company as deliveryCompany,
+		order_status as orderStatus
+		from reimburse
+ 		where order_sn=#{orderSn}
+	</select>
+	<!--修改退款卖家意见-->
+	<update id="updRSellerOpinionByOrderSn" >
+			update
+			reimburse
+			set
+			seller_opinion=#{sellerOpinion}
+			where order_sn=#{orderSn}
+	</update>
+	<!--修改退款卖家说明-->
+	<update id="updRSellerCaptionByOrderSn" >
+			update
+			reimburse
+			set
+			seller_caption=#{sellerCaption}
+			where order_sn=#{orderSn}
+	</update>
+	<!--修改退款物流单号-->
+	<update id="updRDeliveryByOrderSn" >
+			update
+			reimburse
+			set
+			delivery=#{delivery},
+			delivery_company=#{deliveryCompany}
+			where order_sn=#{orderSn}
+	</update>
+	<!--修改退款状态-->
+	<update id="updRDeliveryStatusByOrderSn" >
+			update
+			reimburse
+			set
+			delivery_status=#{deliveryStatus}
+			where order_sn=#{orderSn}
+	</update>
+	<!--修改地址-->
+	<update id="updRAddressByOrderSn" >
+			update
+			reimburse
+			set
+			address=#{address}
+			where order_sn=#{orderSn}
+	</update>
+
+	<!--取消退款请求-->
+	<delete id="delRByOrderSn" >
+			delete
+			from
+			reimburse
+			where order_sn=#{orderSn}
+	</delete>
+</mapper>   
+
+
+
+
+
+
+

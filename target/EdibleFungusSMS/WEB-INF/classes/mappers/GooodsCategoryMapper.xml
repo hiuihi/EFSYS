@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--映射文件：映射文件和映射接口成一一对应的关系-->
+<mapper namespace="cn.fungus.dao.GoodsCategoryDao">
+	<!--查询商品分类	-->
+	<select id="selectCategory" resultType="cn.fungus.domain.GoodsCategory">
+		select
+		id,
+		pid,
+		icon,
+		name,
+		vice_name as viceName,
+ 		`describe`,
+		is_home as isHome,
+		sort,
+		is_enable as isEnable,
+ 		upd_time updTime
+		from goods_category
+ 		where is_enable=1
+	</select>
+
+
+</mapper>   
+
+
+
+
+
+
+

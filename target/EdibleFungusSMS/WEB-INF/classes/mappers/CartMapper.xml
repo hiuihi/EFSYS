@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--映射文件：映射文件和映射接口成一一对应的关系-->
+<mapper namespace="cn.fungus.dao.CartDao">
+	<!--插入购物车信息-->
+	<insert id="insertCart" >
+		insert into
+		cart(user_id,goods_id,goods_name,images,price,promotion_price,stock,total_price,spec)
+		values(#{userId},#{goodsId},#{goodsName},#{images},#{price},#{promotionPrice},#{stock},#{totalPrice},#{spec})
+
+	</insert>
+	<!--查询购物车表中全部信息-->
+	<select id="selectCartByUid" resultType="cn.fungus.domain.Cart">
+		select
+		id,
+		user_id as userId,
+		goods_id as goodsId,
+		goods_name as goodsName,
+		images,
+		price,
+		promotion_price as promotionPrice,
+		stock,
+		total_price as totalPrice,
+		spec,
+		is_enable as isEnable,
+		upd_time as updTime
+		from cart
+		where
+		is_enable=1
+		and
+		user_id=#{userId}
+</select>
+	<!--根据id查询购物车表-->
+	<select id="selectCartById" resultType="cn.fungus.domain.Cart">
+		select
+		id,
+		user_id as userId,
+		goods_id as goodsId,
+		goods_name as goodsName,
+		images,
+		price,
+		promotion_price as promotionPrice,
+		stock,
+		total_price as totalPrice,
+		spec,
+		is_enable as isEnable,
+		upd_time as updTime
+		from cart
+		where
+		is_enable=1
+		and
+		id=#{id}
+</select>
+	<!--删除购物车信息-->
+	<update id="deleteCartById" >
+			update
+			cart
+			set
+			is_enable=0
+			where
+			id=#{id}
+		</update>
+	<!--修改购物车信息-->
+	<update id="updateCartByGoodsId" >
+			update
+			cart
+			set
+			stock=#{stock},
+			total_price=#{totalPrice}
+			where
+			id=#{id}
+	</update>
+</mapper>   
+
+
+
+
+
+
+

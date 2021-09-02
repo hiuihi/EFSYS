@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--映射文件：映射文件和映射接口成一一对应的关系-->
+<mapper namespace="cn.fungus.dao.CollectDao">
+	<!--插入收藏信息-->
+	<insert id="insertCollect" >
+		insert into
+		collect(user_id,goods_id,goods_name,images,price,promotion_price)
+		values(#{userId},#{goodsId},#{goodsName},#{images},#{price},#{promotionPrice})
+
+	</insert>
+
+	<!--查询收藏表中全部信息-->
+	<select id="selectCollectByUid" resultType="cn.fungus.domain.Collect">
+		select
+		id,
+		user_id as userId,
+		goods_id as goodsId,
+		goods_name as goodsName,
+		images,
+		price,
+		promotion_price as promotionPrice,
+		is_enable as isEnable,
+		upd_time as updTime
+		from collect
+		where
+		is_enable=1
+		and
+		user_id=#{userId}
+</select>
+	<!--根据id查询收藏表-->
+	<select id="selectCollectById" resultType="cn.fungus.domain.Collect">
+		select
+		id,
+		user_id as userId,
+		goods_id as goodsId,
+		goods_name as goodsName,
+		images,
+		price,
+		promotion_price as promotionPrice,
+		is_enable as isEnable,
+		upd_time as updTime
+		from collect
+		where
+		is_enable=1
+		and
+		id=#{id}
+</select>
+	<!--删除收藏信息-->
+	<update id="deleteCollectById" >
+			update
+			collect
+			set
+			is_enable=0
+			where
+			id=#{id}
+		</update>
+
+</mapper>   
+
+
+
+
+
+
+

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--映射文件：映射文件和映射接口成一一对应的关系-->
+<mapper namespace="cn.fungus.dao.AdminDao">
+
+
+	<!-- 根据用户名查询用户信息 -->
+	<select id="selectAdminByAdminName" resultType="cn.fungus.domain.Admin">
+   		select
+   		id,
+   		admin_name as adminName,
+   		admin_password as password,
+   		icon,
+   		nick_name as nickName,
+		note,
+		create_time as createTime,
+		login_time as loginTime,
+		address,
+   		admin_status as adminStatus
+   		from admin
+   		where admin_name=#{adminName}
+   </select>
+
+</mapper>   
+
+
+
+
+
+
+

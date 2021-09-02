@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--映射文件：映射文件和映射接口成一一对应的关系-->
+<mapper namespace="cn.fungus.dao.AddressDao">
+	<!--地址表中插入数据-->
+	<insert id="insertAddress" >
+		insert into
+		user_address(user_id,user_address_name,tel,province,city,county,address,is_default)
+		values(#{userId},#{userAddressName},#{tel},#{province},#{city},#{county},#{address},#{isDefault})
+	</insert>
+	<!--据id查询地址-->
+	<select id="selectAddressById" resultType="cn.fungus.domain.Address">
+		select
+		id,
+		user_id as userId,
+		user_address_name as userAddressName,
+		tel,
+		province,
+		city,
+		county,
+		address,
+		is_default as isDefault,
+		alias,
+		is_delete_time as isDeleteTime,
+		upd_time as updTime
+		from user_address
+		where
+		is_delete_time=0
+		and
+		id=#{id}
+</select>
+
+	<!--查询地址中的所有数据-->
+	<select id="selectAddressByUid" resultType="cn.fungus.domain.Address">
+		select
+		id,
+		user_id as userId,
+		user_address_name as userAddressName,
+		tel,
+		province,
+		city,
+		county,
+		address,
+		is_default as isDefault,
+		alias,
+		is_delete_time as isDeleteTime,
+		upd_time as updTime
+		from user_address
+		where
+		is_delete_time=0
+		and
+		user_id=#{userId}
+</select>
+	<!--根据uid查询地址条数-->
+	<select id="selectCountByUid" resultType="java.lang.Long">
+		select
+		count(*)
+		from user_address
+		where
+		is_delete_time=0
+		and
+		user_id=#{userId}
+</select>
+	<!--修改所有默认地址信息为不默认-->
+	<update id="updateDefaultAddress" >
+			update
+			user_address
+			set
+			is_default=0
+	</update>
+
+	<!--根据id修改为默认地址-->
+	<update id="updateDefaultAddressById" >
+			update
+			user_address
+			set
+			is_default=1
+			where
+			id=#{id}
+	</update>
+
+	<!--根据id修改地址-->
+	<update id="updateAddressById" >
+			update
+			user_address
+			set
+			user_address_name=#{userAddressName},
+			tel=#{tel},
+			province=#{province},
+			city=#{city},
+			county=#{county},
+			address=#{address},
+			is_default=#{isDefault}
+			where
+			id=#{id}
+	</update>
+
+	<!--根据id删除地址信息-->
+	<update id="deleteAddressById" >
+			update
+			user_address
+			set
+			is_delete_time=1
+			where
+			id=#{id}
+		</update>
+
+</mapper>   
+
+
+
+
+
+
+

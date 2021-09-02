@@ -1,0 +1,387 @@
+@import "./color.css";
+    
+    /* 我的账户 */
+    /* 订单号/下单时间 */
+    .breadcrumb-wrap1 {
+        background-color: #eee;
+         /* text-align: center;  */
+        height: 30px;
+        font-size: 20px;
+        font-weight: 400;
+    }
+    .breadcrumb-wrap1 p{
+        margin-left: 10px ;
+    }
+    /* 删除订单按钮 */
+    .del_order{
+        display: none;
+        float: right;
+        margin-right: 3%;
+    }
+    .del_order:hover{
+        color: #CC2121;
+    }
+    
+    /* 详情栏 */
+    .shoping__cart__table1 {
+        margin-bottom: 30px;
+        height: 40px;
+       /* 垂直居中 */
+        display: -webkit-flex; /* Safari */
+        -webkit-align-items: center; /* Safari 7.0+ */
+        display: flex;
+        align-items: center;
+        background-color: #eee;
+    }
+    
+    .shoping__cart__table1 table {
+        width: 100%;
+        text-align: center;
+    }
+    
+    /* .shoping__cart__table1 table thead tr {
+        border-bottom: 1px solid #ebebeb;
+    } */
+    
+    .shoping__cart__table1 table thead th {
+        font-size: 15px;
+        font-weight:700;
+        color: #1c1c1c;
+        /* padding-bottom: 20px; */
+        width: 10%;
+        
+    }
+    
+    .shoping__cart__table1 table thead th.shoping__product {
+        width: 40%;
+    }
+    
+    
+    /* 商品订单栏 */
+    .shoping__cart__table2 {
+        margin-bottom: 30px;
+    }
+    
+    .shoping__cart__table2 table {
+        width: 100%;
+        text-align: center;
+        /* 边框 */
+        border: 1px solid #eee;
+    }
+    .shoping__cart__table2 table thead {
+        background-color: #eee;
+    }
+    /* .shoping__cart__table2 table thead tr {
+        border-bottom: 1px solid #ebebeb;
+    }
+    
+    .shoping__cart__table2 table thead th {
+        font-size: 15px;
+        font-weight: 400;
+        color: #1c1c1c;
+        padding-bottom: 20px;
+    }
+    
+    .shoping__cart__table2 table thead th.shoping__product {
+        text-align: left;
+    } */
+    .shoping__cart__table2 table tbody a {
+         color: rgb(163, 160, 160);
+    }
+    .shoping__cart__table2 table tbody tr td {
+         padding-top: 10px; 
+        padding-bottom: 10px;
+        /* border-bottom: 1px solid #ebebeb; */
+    }
+
+.shoping__cart__table2 table tbody tr td.shoping__cart__item {
+    /* width: 330px; */
+    width: 40%;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.shoping__cart__table2 table tbody tr td.shoping__cart__item img {
+    display: inline-block;
+    margin-right: 25px;
+    margin-left: 10px;
+    height: 100px;
+    width: 100px;
+
+
+}
+
+.shoping__cart__table2 table tbody tr td.shoping__cart__item h5 {
+
+    color: #1c1c1c;
+    display: inline-block;
+    /* ellipsis 表示显示省略符号来代表被修剪的文本。 */
+    text-overflow: ellipsis;
+    /*  overflow 属性规定当内容溢出元素框时发生的事情*/
+    overflow: hidden;
+    /*  规定文本不进行换行*/
+    white-space: nowrap;
+    max-width: 180px;
+    /* 垂直居中 */
+
+}
+
+.shoping__cart__table2 table tbody tr td.shoping__cart__item h5 a{
+
+    color: #1c1c1c;
+
+
+}
+.shoping__cart__table2 table tbody tr td.shoping__cart__price {
+    font-size: 15px;
+    color: #1c1c1c;
+    font-weight: 400;
+    /* width: 110px; */
+    width: 10%;
+    border-bottom: 1px solid #eee;
+
+}
+.shoping__cart__table2 table tbody tr td.shoping__cart__quantity {
+    font-size: 15px;
+    font-weight: 400;
+    /* width: 50px; */
+    width: 10%;
+    border-right:  1px solid #eee;
+    border-bottom: 1px solid #eee;
+
+}
+.shoping__cart__table2 table tbody tr td.shoping__cart__total {
+    font-size: 15px;
+    color: #1c1c1c;
+    font-weight: 400;
+    /* width: 100px; */
+    width: 10%;
+    border-right:  1px solid #eee;
+
+}
+.shoping__cart__table2 table tbody tr td.shoping__cart__after {
+    font-size: 15px;
+    color: #1c1c1c;
+    font-weight: 400;
+    /* width: 100px; */
+    width: 10%;
+    border-right:  1px solid #eee;
+
+}
+.shoping__cart__table2 table tbody tr td.shoping__cart__status {
+    font-size: 15px;
+    color: #1c1c1c;
+    font-weight: 400;
+    /* width: 90px; */
+    width: 10%;
+    border-right:  1px solid #eee;
+
+}
+.shoping__cart__table2 table tbody tr td.shoping__cart__handle {
+    font-size: 15px;
+    color: #1c1c1c;
+    font-weight: 400;
+    /* width: 80px; */
+    width: 10%;
+    text-align: center;
+
+}
+.shoping__cart__table2 table tbody tr td.shoping__cart__handle a{
+    /* float: left; */
+    width: 60px;
+    height: 30px;
+    padding: 5px;
+    background-color: var(--green-7f);
+    /* background-color: antiquewhite; */
+    font: 11px/31px "microsoft yahei";
+    color: #fff;
+    /* cursor: pointer; 鼠标变成小手 */
+    font-weight: 500;
+    margin: 0 auto;
+}
+.shoping__cart__table2 table tbody tr td.shoping__cart__handle button{
+    /* float: left; */
+    width: 70px;
+    height: 20px;
+    padding: 5px;
+    font: 11px/31px "microsoft yahei";
+    font-weight: 500;
+    margin: 0 auto;
+}
+    /* 查看物流  */
+    .addmodal{
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        background: rgba(0,0,0,0.5);
+        /* overflow-x: hidden;
+        overflow-y: scroll; */
+        /* overflow:auto; */
+        display: none;
+        z-index:2;
+        }
+    .modal-dialog{
+        position: relative;
+        width: 600px;
+        margin: 140px auto;
+        background: white;
+        border-radius: 5px;
+       
+    }
+    #add-modal-dialog{
+        position: relative;
+        width: 600px;
+        margin: 140px auto;
+        background: white;
+        border-radius: 5px;
+       
+    }
+    #div_Logistics{
+        height: 500px;
+        overflow-x: hidden;/*x轴禁止滚动*/
+        overflow-y: scroll;/*y轴滚动*/
+    }
+
+/* 评论  */
+.div_comment{
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    z-index:2;
+}
+.comment-modal-dialog{
+    position: relative;
+    width: 570px;
+    margin: 140px auto;
+    background: white;
+    border-radius: 5px;
+}
+
+.div_comment-y{
+    height: 410px;
+    overflow-x: hidden;/*x轴禁止滚动*/
+    overflow-y: scroll;/*y轴滚动*/
+}
+.div_comment .icon{
+    height: 60px;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+.div_comment span{
+    margin-left: 20px;
+    /* margin-left: -50px; */
+    /* ma-top: 100px; */
+}
+
+/* 评论 */
+.upload_comment_image{
+    margin-bottom: 10px;
+}
+.upload_comment_image button{
+    width: 80px;
+    height: 80px;
+    border: 2px dashed #eee;
+}
+.upload_comment_image i{
+    font-size: 30px;
+    color: #e2e2e2;
+}
+.upload_comment_image p{
+    font-size: 7px;
+    height:5px;
+}
+/*图片右上角X*/
+.img-wrapper {
+    margin:10px 10px;
+    position: relative;
+    display: inline-block;
+}
+i.img-close{
+    color: #CC2121;
+    position: absolute;
+    top: -7px;
+    right: -7px;
+    cursor: pointer;
+    font-size:20px;
+}
+
+.img_pic{
+    width:80px;
+    height:80px;
+}
+/* 退款 */
+.div_reimburse{
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    background: rgba(0,0,0,0.5);
+     display: none;
+    z-index:2;
+}
+.reimburse-modal-dialog{
+    position: relative;
+    width: 650px;
+    margin: 100px auto;
+    background: white;
+    border-radius: 5px;
+}
+
+.div_reimburse-y{
+    height: 500px;
+    overflow-x: hidden;/*x轴禁止滚动*/
+    overflow-y: scroll;/*y轴滚动*/
+}
+.div_reimburse .div_display{
+    display: none;
+}
+
+/* 退款商品选择 */
+.div-refund-goods{
+    height: 70px;
+    /* 垂直居中 */
+    display: -webkit-flex;
+    -webkit-align-items: center;
+    display: flex;
+    align-items: center;
+}
+.div-refund-goods input{
+    float: left;
+
+}
+.div-refund-goods img{
+    height: 50px;
+    margin: 0px 10px;
+    float: left;
+}
+.refund-goodsname{
+    float: left;
+    margin: 0px 2px;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    width: 150px;
+}
+/* 退款结束 */
+
+/* 暂无订单*/
+/*.n_available{*/
+/*    margin:  0 auto;*/
+/*    text-align: center;*/
+/*}*/
+/*.n_available img{*/
+/*    !*height: 100px;*!*/
+/*    color: chartreuse;*/
+/*}*/
+/*.n_available p{*/
+/*    margin-top: 10px;*/
+/*    font-size: 20px;*/
+/*    font-weight: 500;*/
+/*}*/

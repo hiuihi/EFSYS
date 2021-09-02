@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--映射文件：映射文件和映射接口成一一对应的关系-->
+<mapper namespace="cn.fungus.dao.GoodsDao">
+	<!--查询商品信息无分页	-->
+	<select id="selectGoodsNoPagination" resultType="cn.fungus.domain.Goods">
+		select
+		id,
+		goods_id as goodsId,
+		goods_name as goodsName,
+		icon,
+		pic,
+		sub_pic as subPic,
+		grade,
+		title,
+		simple_desc as simpleDesc,
+		price,
+		stock,
+		low_stock as lowStock,
+		spec,
+		sale,
+		unit,
+		weight,
+		description,
+		album_pics as albumPics,
+		promotion_price as promotionPrice,
+		promotion_start_time as promotionStartTime,
+		promotion_end_time as promotionEndTime,
+		promotion_per_limit as promotionPerLimit,
+		delete_status as deleteStatus,
+		publish_status as publishStatus,
+		new_status as newStatus,
+		recommand_status as recommandStatus,
+		discount_status as discountStatus,
+		category_id as categoryId,
+		upd_time as updTime
+		from goods
+ 		where publish_status=1
+ 		and delete_status=0
+	</select>
+	<!--查询商品信息	-->
+	<select id="selectGoods" resultType="cn.fungus.domain.Goods">
+		select
+		id,
+		goods_id as goodsId,
+		goods_name as goodsName,
+		icon,
+		pic,
+		sub_pic as subPic,
+		grade,
+		title,
+		simple_desc as simpleDesc,
+		price,
+		stock,
+		low_stock as lowStock,
+		spec,
+		sale,
+		unit,
+		weight,
+		description,
+		album_pics as albumPics,
+		promotion_price as promotionPrice,
+		promotion_start_time as promotionStartTime,
+		promotion_end_time as promotionEndTime,
+		promotion_per_limit as promotionPerLimit,
+		delete_status as deleteStatus,
+		publish_status as publishStatus,
+		new_status as newStatus,
+		recommand_status as recommandStatus,
+		discount_status as discountStatus,
+		category_id as categoryId,
+		upd_time as updTime
+		from goods
+ 		where publish_status=1
+ 		and delete_status=0
+ 		and goods_name like #{goodsName}
+ 		and category_id like #{categoryId}
+ 		limit #{start},#{rows}
+	</select>
+	<!-- 查询所有商品数(有条件) -->
+	<select id="selectCount" resultType="java.lang.Integer">
+   		select
+   		count(*)
+   		from goods
+   		where delete_status=0
+   		and publish_status=1
+   		and goods_name like #{goodsName}
+ 		and category_id like #{categoryId}
+   </select>
+
+	<!-- 根据商品id查询商品信息	-->
+	<select id="selectGoodsByGid" resultType="cn.fungus.domain.Goods">
+		select
+		id,
+		goods_id as goodsId,
+		goods_name as goodsName,
+		icon,
+		pic,
+		sub_pic as subPic,
+		grade,
+		title,
+		simple_desc as simpleDesc,
+		price,
+		stock,
+		low_stock as lowStock,
+		spec,
+		sale,
+		unit,
+		weight,
+		description,
+		album_pics as albumPics,
+		promotion_price as promotionPrice,
+		promotion_start_time as promotionStartTime,
+		promotion_end_time as promotionEndTime,
+		promotion_per_limit as promotionPerLimit,
+		delete_status as deleteStatus,
+		publish_status as publishStatus,
+		new_status as newStatus,
+		recommand_status as recommandStatus,
+		discount_status as discountStatus,
+		category_id as categoryId,
+		upd_time as updTime
+		from goods
+ 		where goods_id=#{gid}
+ 		and delete_status=0
+	</select>
+	<!-- 根据id查询商品信息	-->
+	<select id="selectGoodsById" resultType="cn.fungus.domain.Goods">
+		select
+		id,
+		goods_id as goodsId,
+		goods_name as goodsName,
+		icon,
+		pic,
+		sub_pic as subPic,
+		grade,
+		title,
+		simple_desc as simpleDesc,
+		price,
+		stock,
+		low_stock as lowStock,
+		spec,
+		sale,
+		unit,
+		weight,
+		description,
+		album_pics as albumPics,
+		promotion_price as promotionPrice,
+		promotion_start_time as promotionStartTime,
+		promotion_end_time as promotionEndTime,
+		promotion_per_limit as promotionPerLimit,
+		delete_status as deleteStatus,
+		publish_status as publishStatus,
+		new_status as newStatus,
+		recommand_status as recommandStatus,
+		discount_status as discountStatus,
+		category_id as categoryId,
+		upd_time as updTime
+		from goods
+ 		where id=#{id}
+ 		and delete_status=0
+	</select>
+
+	<!-- 查询全部商品	-->
+	<select id="selectAllGoods" resultType="cn.fungus.domain.Goods">
+		select
+		id,
+		goods_id as goodsId,
+		goods_name as goodsName,
+		icon,
+		pic,
+		sub_pic as subPic,
+		grade,
+		title,
+		simple_desc as simpleDesc,
+		price,
+		stock,
+		low_stock as lowStock,
+		spec,
+		sale,
+		unit,
+		weight,
+		description,
+		album_pics as albumPics,
+		promotion_price as promotionPrice,
+		promotion_start_time as promotionStartTime,
+		promotion_end_time as promotionEndTime,
+		promotion_per_limit as promotionPerLimit,
+		delete_status as deleteStatus,
+		publish_status as publishStatus,
+		new_status as newStatus,
+		recommand_status as recommandStatus,
+		discount_status as discountStatus,
+		category_id as categoryId,
+		upd_time as updTime
+		from goods
+ 		where delete_status=0
+ 		and goods_id like #{goodsId}
+		and goods_name like #{goodsName}
+ 		order by upd_time desc
+ 		limit #{start},#{rows}
+	</select>
+	<!-- 查询所有商品数 -->
+	<select id="selectCountGoods" resultType="java.lang.Integer">
+   		select
+   		count(*)
+   		from goods
+   		where delete_status=0
+   		and goods_id like #{goodsId}
+		and goods_name like #{goodsName}
+   </select>
+	<!-- 插入商品全部信息 -->
+	<insert id="insertGoodsAll">
+   		insert into goods(goods_id,goods_name,icon,pic,sub_pic,title,simple_desc,price,stock,low_stock,spec,sale,unit,weight,description,album_pics,promotion_price,promotion_start_time,promotion_end_time,promotion_per_limit,publish_status,new_status,recommand_status,discount_status,category_id)
+   		values(#{goodsId},#{goodsName},#{icon},#{pic},#{subPic},#{title},#{simpleDesc},#{price},#{stock},#{lowStock},#{spec},#{sale},#{unit},#{weight},#{description},#{albumPics},#{promotionPrice},#{promotionStartTime},#{promotionEndTime},#{promotionPerLimit},#{publishStatus},#{newStatus},#{recommandStatus},#{discountStatus},#{categoryId})
+   </insert>
+	<!--修改插入商品全部信息-->
+	<update id="updateGoodsAll">
+			update
+			goods
+			set
+			goods_name=#{goodsName},
+			icon=#{icon},
+			pic=#{pic},
+			sub_pic=#{subPic} ,
+			title=#{title},
+			simple_desc=#{simpleDesc},
+			price=#{price},
+			stock=#{stock},
+			low_stock=#{lowStock},
+			spec=#{spec},
+			sale=#{sale},
+			unit=#{unit},
+			weight=#{weight},
+			description=#{description},
+			album_pics=#{albumPics},
+			promotion_price=#{promotionPrice},
+			promotion_start_time=#{promotionStartTime},
+			promotion_end_time=#{promotionEndTime},
+			promotion_per_limit=#{promotionPerLimit},
+			publish_status=#{publishStatus},
+			new_status=#{newStatus},
+			recommand_status=#{recommandStatus},
+			discount_status=#{discountStatus},
+			category_id=#{categoryId}
+			where
+			goods_id=#{goodsId}
+	</update>
+	<!--删除商品-->
+	<update id="delGoodsById" >
+			update
+			goods
+			set
+			delete_status=1
+			where
+			id=#{id}
+	</update>
+	<!--修改商品上架状态-->
+	<update id="updPubStatusById">
+			update
+			goods
+			set
+			publish_status=#{publishStatus}
+			where
+			id=#{id}
+	</update>
+	<!--修改商品新品状态-->
+	<update id="updNewStatusById">
+			update
+			goods
+			set
+			new_status=#{newStatus}
+			where
+			id=#{id}
+	</update>
+	<!--修改商品推荐状态-->
+	<update id="updRecStatusById">
+			update
+			goods
+			set
+			recommand_status=#{recommandStatus}
+			where
+			id=#{id}
+	</update>
+	<!--修改商品折扣状态-->
+	<update id="updDisStatusById">
+			update
+			goods
+			set
+			discount_status=#{discountStatus}
+			where
+			id=#{id}
+	</update>
+	<!--修改商品评分-->
+	<update id="updGradeByGid">
+			update
+			goods
+			set
+			grade=#{grade}
+			where
+			goods_id=#{goodsId}
+	</update>
+	<!--修改商品库存-->
+	<update id="updStockByGid">
+			update
+			goods
+			set
+			stock=#{stock}
+			where
+			goods_id=#{goodsId}
+	</update>
+	<!--修改商品销量-->
+	<update id="updSaleByGid">
+			update
+			goods
+			set
+			sale=#{sale}
+			where
+			goods_id=#{goodsId}
+	</update>
+</mapper>   
+
+
+
+
+
+
+

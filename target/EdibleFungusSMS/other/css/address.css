@@ -1,0 +1,165 @@
+/* 我的地址栏 */
+
+   
+    
+.shoping__cart__table2 {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.shoping__cart__table2 table {
+    width: 100%;
+    text-align: center;
+    /* 边框 */
+    border: 1px solid #eee;
+}
+.shoping__cart__table2 table thead tr{
+    background-color: #eee;
+    height:  40px;
+}
+ .shoping__cart__table2 table thead th {
+    font-size: 15px;
+    font-weight:700;
+    color: #1c1c1c;
+    /* padding-bottom: 20px; */
+    width: 10%;
+    
+}
+
+/* .shoping__cart__table2 table thead tr {
+    border-bottom: 1px solid #ebebeb;
+}
+
+.shoping__cart__table2 table thead th {
+    font-size: 15px;
+    font-weight: 400;
+    color: #1c1c1c;
+    padding-bottom: 20px;
+}
+
+.shoping__cart__table2 table thead th.shoping__product {
+    text-align: left;
+} */
+.shoping__cart__table2 table tbody a {
+     color: rgb(163, 160, 160);
+}
+.shoping__cart__table2 table tbody tr td {
+     padding-top: 10px; 
+    padding-bottom: 10px;
+    border: 1px solid #ebebeb;
+}
+
+.shoping__cart__table2 table tbody tr td.shoping__cart__item {
+    /* width: 330px; */
+    width: 10%;
+    font-size: 15px;
+    font-weight: 400;
+    text-align:center;
+    margin: 0 auto;
+    
+}
+
+/* .shoping__cart__table2 table tbody tr td.shoping__cart__item img {
+    display: inline-block;
+    margin-right: 25px;
+    margin-left: 10px;
+    height: 100px;
+    width: 100px;
+   
+} */
+
+
+.shoping__cart__table2 table tbody tr td.shoping__cart__price {
+    font-size: 15px;
+    color: #1c1c1c;
+    font-weight: 400;
+    /* width: 110px; */
+    width: 10%;
+   
+}
+.shoping__cart__table2 table tbody tr td.shoping__cart__quantity {
+    font-size: 15px;
+    font-weight: 400;
+    padding: 10px 20px;
+    /* width: 50px; */
+    width: 40%;
+    text-align: left;
+    
+}
+.shoping__cart__table2 table tbody tr td.shoping__cart__total {
+    font-size: 15px;
+    color: #1c1c1c;
+    font-weight: 400;
+    /* width: 100px; */
+    width: 15%;
+   
+}
+.shoping__cart__table2 table tbody tr td.shoping__cart__after {
+    font-size: 15px;
+    color: #1c1c1c;
+    font-weight: 400;
+    /* width: 100px; */
+    width: 10%;
+    
+}
+.shoping__cart__table2 table tbody tr td.shoping__cart__status {
+    font-size: 15px;
+    color: #1c1c1c;
+    font-weight: 400;
+    /* width: 90px; */
+    width: 10%;
+   
+}
+.shoping__cart__table2 table tbody tr td.shoping__cart__handle {
+    font-size: 15px;
+    color: #1c1c1c;
+    font-weight: 400;
+    /* width: 80px; */
+    width: 5%;
+   
+}
+.shoping__cart__table2 table tbody tr td.shoping__cart__handle i{
+    cursor: pointer;
+}
+.shoping__cart__table2 table  a:hover{
+    color: var(--green-7f);
+}
+.shoping__cart__table2 table tbody tr td.shoping__cart__status span{
+    /* float: left; */
+    width: 60px;
+    height: 30px;
+    padding: 5px;
+    background-color: var(--green-7f);
+    /* background-color: antiquewhite; */
+    font: 11px/31px "microsoft yahei";
+    color: #fff;
+    /* cursor: pointer; 鼠标变成小手 */
+    font-weight: 500;
+    /*display: none;*/
+   
+}
+
+/* 新增地址栏 */
+#div_add_address{
+    margin-bottom: 10px;
+    font-style:normal
+}
+#div_add_address i{
+    color: var(--green-7f);
+    font-style:normal;
+}
+/* 新增地址按钮 */
+#div_add_address #btn_add_address{
+    width: 100px;
+    height: 40px;
+    padding: 5px;
+    background-color: var(--green-7f);
+    font: 14px/31px "microsoft yahei";
+    color: #fff;
+    /* //鼠标变成小手 */
+    cursor: pointer;
+
+    font-weight: 600;
+
+}
+/* 新增地址栏结束 */
